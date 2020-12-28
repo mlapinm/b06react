@@ -17,7 +17,7 @@ export default class App extends React.Component {
           }}/>
           <Button title="click me" 
           onPress = {() => {
-            alert("4444");
+            alert(this.state.text);
             console.log("33333");
           } } />
         <StatusBar style="auto" />
