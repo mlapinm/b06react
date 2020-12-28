@@ -2,14 +2,15 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, Button, Alert } from 'react-native';
 
-class MyData extends React.Component {
-  render(){
+const MyData = (props)=> {
     return (
+      <View>
       <Text style={styles.text}>
-        {this.props.name} {this.props.status} {this.props.age}
+        {props.name} {props.status}
         </Text>
+      <Text>{props.age}</Text>
+      </View>
     )
-    }
 }
 
 export default class App extends React.Component {
