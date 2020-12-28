@@ -2,24 +2,21 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, Button, Alert } from 'react-native';
 
-const MyData = (props)=> {
-    return (
-      <View>
-      <Text style={styles.text}>
-        {props.name} {props.status}
-        </Text>
-      <Text>{props.age}</Text>
-      </View>
-    )
-}
-
 export default class App extends React.Component {
-  render(){
+  state = {
+    name : "John"
+  }
+  handleSt(){
+    this.setState({
+      name : "Smith"
+    })
+    console.log("updated ", this.state)
+  }
+    render(){
       return (
       <View style={styles.container}>
-        <MyData name="John" status="Dow" age="33" />
-        <MyData name="Vasya" status="Ivanov" age="43"  />
-        <MyData name="Smith" status="Smith" age="35"  />
+        <Text style={styles.text}>{this.state.name}</Text>
+        <Button title="click me" onPress={()=>{this.handleSt()}} />
         <StatusBar style="auto" />
       </View>
     );
