@@ -6,7 +6,7 @@ export default class App extends React.Component {
   state = {
     name : "John"
   }
-  handleSt(){
+  handleSt = () => {
     this.setState({
       name : "Smith"
     })
@@ -16,7 +16,7 @@ export default class App extends React.Component {
       return (
       <View style={styles.container}>
         <Text style={styles.text}>{this.state.name}</Text>
-        <Button title="click me" onPress={()=>{this.handleSt()}} />
+        <Button title="click me" onPress={this.handleSt} />
         <StatusBar style="auto" />
       </View>
     );
