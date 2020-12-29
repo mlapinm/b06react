@@ -7,27 +7,19 @@ export default class App extends React.Component {
   state = {
     text : "text1"
   }
+  componentDidMount(){
+    fetch("http://jsonplaceholder.typicode.com/users")
+    .then(data=>data.json())
+    .then(data2=>{
+      console.log(data2)
+      this.setState({
+        text:data2[1].name
+      })
+    })
+  }
     render(){
       return (
       <View style={styles.container}>
-        <ScrollView>
-        <Image 
-          source={{uri: 'https://img1.goodfon.ru/original/2560x1440/c/85/prazdnik-svecha-ogon-korobka.jpg'}}
-          style={styles.img}
-          />
-          <Image 
-          source={{uri: 'https://img1.goodfon.ru/original/2560x1440/c/85/prazdnik-svecha-ogon-korobka.jpg'}}
-          style={styles.img}
-          />
-          <Image 
-          source={{uri: 'https://img1.goodfon.ru/original/2560x1440/c/85/prazdnik-svecha-ogon-korobka.jpg'}}
-          style={styles.img}
-          />
-          <Image 
-          source={{uri: 'https://img1.goodfon.ru/original/2560x1440/c/85/prazdnik-svecha-ogon-korobka.jpg'}}
-          style={styles.img}
-          />
-        </ScrollView>
         <Text style={styles.text}>{this.state.text}</Text>
         <StatusBar style="auto" />
       </View>
@@ -39,7 +31,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    // alignItems: 'center',
+    alignItems: 'center',
     justifyContent: 'center',
   },
   text: {
